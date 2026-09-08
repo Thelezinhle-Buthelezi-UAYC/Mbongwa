@@ -1,18 +1,21 @@
 ﻿import { Link } from 'react-router-dom'
+import { config } from '../constants/config'
+import cityOfAfricaLogo from '../assets/images/city-of-africa-thumb.png'
 
 function Header() {
   return (
     <header>
       <nav>
-        <div className="logo">
-          <h2>🎨 Mbongwa Creatives</h2>
-        </div>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/gallery">Gallery</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/services">Services</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+        <Link to="/" className="logo">
+          <img src={cityOfAfricaLogo} alt="Mbongwa Creatives" />
+        </Link>
+
+        <ul className="nav-links">
+          {config.navigation.map((item) => (
+            <li key={item.path}>
+              <Link to={item.path}>{item.name}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
