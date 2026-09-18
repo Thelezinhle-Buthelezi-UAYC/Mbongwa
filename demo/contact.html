@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Mbongwa Creatives</title>
+  <meta name="description" content="Get in touch with Mbongwa Creatives. Have a project in mind or just want to say hello? We'd love to hear from you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Header injected by header.js -->
+  <div id="header-mount"></div>
+
+  <main id="main-content" class="page-shell" tabindex="-1">
+    <div class="page-wrap contact-page">
+
+      <!-- ── Contact Hero ───────────────────────────────────────────────── -->
+      <section class="contact-hero" aria-label="Contact Mbongwa Creatives">
+
+        <!-- Gradient placeholder (replace with real video when available) -->
+        <div class="contact-hero-placeholder" aria-hidden="true"></div>
+        <!--
+        <video
+          id="contact-video"
+          class="contact-video"
+          src="../public/assets/contact/contact-background.mp4"
+          poster="../public/assets/contact/contact-poster.jpg"
+          autoplay muted loop playsinline preload="auto"
+          title="Parallel Light Patterns"
+          aria-label="Parallel Light Patterns background video"
+        ></video>
+        -->
+        <div class="contact-overlay" aria-hidden="true"></div>
+
+        <div class="contact-hero-copy">
+          <p class="eyebrow light">Contact</p>
+          <h1>Let&rsquo;s Create Something Memorable</h1>
+          <p class="contact-subheadline">
+            Have a project in mind or just want to say hello?
+            We&rsquo;d love to hear from you.
+          </p>
+          <div class="contact-list" id="contact-list-mount">
+            <!-- Populated by contact.js -->
+          </div>
+        </div>
+
+        <button
+          type="button"
+          id="contact-video-toggle"
+          class="contact-video-toggle"
+          aria-label="Pause background video"
+          title="Pause background video"
+          style="display:none;"
+        >Pause Video</button>
+      </section>
+
+      <!-- ── Contact Showcase ───────────────────────────────────────────── -->
+      <section class="contact-showcase" aria-label="Creative work showcase">
+        <div class="contact-showcase__media">
+          <div
+            style="width:100%;height:420px;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#0f3460 70%,#533483 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;"
+            aria-hidden="true"
+          >
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="40" r="38" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+              <path d="M32 28l20 12-20 12V28z" fill="rgba(255,255,255,0.25)"/>
+            </svg>
+            <p style="color:rgba(255,255,255,0.35);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;margin:0;">Creative work showcase</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Direct Contact Cards ───────────────────────────────────────── -->
+      <div class="narrative-section">
+        <div class="section-header">
+          <p class="eyebrow">REACH US DIRECTLY</p>
+          <h2>We&rsquo;re easy to find.</h2>
+        </div>
+        <div class="narrative-stack">
+          <article class="narrative-row">
+            <div class="narrative-index">Phone</div>
+            <div class="narrative-text">
+              <h3>Call Us</h3>
+              <p>
+                <a href="tel:+27671406632">+27 67 140 6632</a> &nbsp;&middot;&nbsp;
+                <a href="tel:+27684957045">+27 68 495 7045</a>
+              </p>
+            </div>
+          </article>
+          <article class="narrative-row">
+            <div class="narrative-index">Email</div>
+            <div class="narrative-text">
+              <h3>Email Us</h3>
+              <p><a href="mailto:mbongwacreatives@gmail.com">mbongwacreatives@gmail.com</a></p>
+            </div>
+          </article>
+          <article class="narrative-row">
+            <div class="narrative-index">Social</div>
+            <div class="narrative-text">
+              <h3>Follow Our Work</h3>
+              <p>
+                <a href="https://www.instagram.com/mbongwacreatives/" target="_blank" rel="noreferrer">Instagram</a> &nbsp;&middot;&nbsp;
+                <a href="https://www.tiktok.com/@mbongwacreatives/" target="_blank" rel="noreferrer">TikTok</a> &nbsp;&middot;&nbsp;
+                <a href="https://www.linkedin.com/company/mbongwa-creatives/" target="_blank" rel="noreferrer">LinkedIn</a> &nbsp;&middot;&nbsp;
+                <a href="https://x.com/MbongwaCreate" target="_blank" rel="noreferrer">X / Twitter</a>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer injected by header.js -->
+  <div id="footer-mount"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

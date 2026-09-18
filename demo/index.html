@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mbongwa Creatives — Creating Experiences. Building Brands. Inspiring Growth.</title>
+  <meta name="description" content="Mbongwa Creatives is a creative advertising agency specialising in commercial production, motion graphics, product launches, and integrated campaigns." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Header injected by header.js -->
+  <div id="header-mount"></div>
+
+  <main id="main-content" class="page-shell" tabindex="-1">
+    <div class="landing-page page-wrap">
+
+      <!-- ── Hero ──────────────────────────────────────────────────────── -->
+      <section class="home-hero" aria-label="Mbongwa Creatives hero section">
+        <div class="home-hero__media" aria-hidden="true">
+          <!-- Gradient placeholder (replace src with real video path when available) -->
+          <div class="home-hero__placeholder"></div>
+          <!--
+          <video
+            id="hero-video"
+            class="home-hero__video"
+            src="../public/assets/hero/home-hero.mp4"
+            poster="../public/assets/hero/home-hero.jpg"
+            autoplay muted loop playsinline
+            aria-label="Background hero video for Mbongwa Creatives"
+            title="Background hero video"
+          ></video>
+          -->
+          <div class="home-hero__overlay"></div>
+        </div>
+
+        <div class="home-hero__content">
+          <p class="home-hero__eyebrow">Creative Advertising Agency</p>
+          <h1 class="home-hero__headline">
+            <span>creating experiences.</span>
+            <span>building brands.</span>
+            <span>inspiring growth.</span>
+          </h1>
+          <p class="home-hero__subheadline">
+            We create powerful advertising, cinematic content, and brand campaigns that connect
+            with audiences, elevate brands, and drive meaningful growth.
+          </p>
+          <a href="portfolio.html" class="home-hero__cta">View Our Work <span aria-hidden="true">→</span></a>
+        </div>
+
+        <button
+          type="button"
+          id="hero-video-toggle"
+          class="home-hero__toggle"
+          aria-label="Pause background video"
+          title="Pause background video"
+          style="display:none;"
+        >Pause</button>
+      </section>
+
+      <!-- ── Agency Intro ───────────────────────────────────────────────── -->
+      <section class="agency-intro" aria-label="Agency introduction and capabilities">
+        <div class="agency-intro__content">
+          <p class="agency-intro__statement">
+            Mbongwa Creatives is a creative advertising agency specializing in commercial
+            production, motion graphics, product launches, and integrated campaigns that help
+            brands connect, stand out, and grow.
+          </p>
+          <ul class="agency-intro__list" id="intro-list-mount" aria-label="Core creative services">
+            <!-- Populated by home.js -->
+          </ul>
+        </div>
+        <div class="agency-intro__period" aria-hidden="true">.</div>
+      </section>
+
+      <!-- ── Story ──────────────────────────────────────────────────────── -->
+      <section class="story-block slim-block">
+        <p>
+          We shape campaigns that balance clarity, beauty, and performance—combining creative
+          direction, production, and motion to turn attention into brand equity.
+        </p>
+      </section>
+
+      <!-- ── Services ───────────────────────────────────────────────────── -->
+      <section class="services-section" aria-label="Our services">
+        <div class="section-header services-header">
+          <p class="eyebrow">OUR SERVICES</p>
+          <h2>What you can get from us</h2>
+        </div>
+        <div class="services-featured-panels" id="services-panels-mount">
+          <!-- Populated by home.js -->
+        </div>
+      </section>
+
+      <!-- ── Brand Framework ────────────────────────────────────────────── -->
+      <section class="brand-framework" aria-label="Brand framework">
+        <div class="brand-framework__header">
+          <p class="eyebrow">OUR FRAMEWORK</p>
+          <h2>Our Framework for Brand Clarity</h2>
+          <p class="brand-framework__intro">
+            A collaborative creative process that transforms ideas into unforgettable brand
+            experiences and impactful campaigns.
+          </p>
+        </div>
+        <div class="brand-framework__grid" id="framework-mount">
+          <!-- Populated by home.js -->
+        </div>
+      </section>
+
+      <!-- ── Testimonials ───────────────────────────────────────────────── -->
+      <section class="testimonials-section">
+        <div class="testimonials-header">
+          <h2>What Our Clients Say</h2>
+        </div>
+        <div class="testimonials-grid" id="testimonials-mount">
+          <!-- Populated by home.js -->
+        </div>
+      </section>
+
+      <!-- ── Narrative ──────────────────────────────────────────────────── -->
+      <section class="narrative-section" aria-label="Creative systems">
+        <div class="section-header">
+          <p class="eyebrow">WHAT WE DO</p>
+          <h2>Creative systems built for growth.</h2>
+        </div>
+        <div class="narrative-stack" id="narrative-mount">
+          <!-- Populated by home.js -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer injected by header.js -->
+  <div id="footer-mount"></div>
+
+  <!-- Scripts: data first, then shared, then page-specific -->
+  <script src="js/data.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

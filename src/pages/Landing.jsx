@@ -1,216 +1,104 @@
-﻿import { motion } from 'framer-motion'
-import { useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
-import { config } from '../constants/config'
-import { adsData, getFeaturedAds } from '../data/adsData'
-import {
-  pageTransition,
-  fadeIn,
-  staggerContainer,
-  staggerItem,
-} from '../constants/animations'
+﻿import { config } from '../constants/config'
+import AgencyIntro from '../components/AgencyIntro'
+import BrandFramework from '../components/BrandFramework'
+import HomeHero from '../components/HomeHero'
+import HomeServices from '../components/HomeServices'
+import TestimonialsSection from '../components/TestimonialsSection'
+
+const narrativeItems = [
+  {
+    title: 'Strategy that sharpens the message',
+    copy:
+      'We build campaigns around real audience insight, positioning, and attention—so every creative choice creates meaning, not noise.',
+  },
+  {
+    title: 'Production with editorial taste',
+    copy:
+      'From concept to final frame, we craft polished visual stories that feel premium, contemporary, and unmistakably brand-led.',
+  },
+  {
+    title: 'Launches designed to move people',
+    copy:
+      'Whether it is a product reveal or a full-funnel campaign, we design the experience to generate recall, trust, and action.',
+  },
+]
 
 function Landing() {
-  const heroVideoRef = useRef(null)
-  const featuredVideoRef = useRef(null)
-
-  const featuredAds = getFeaturedAds()
-  const heroAd = featuredAds.length > 0 ? featuredAds[0] : adsData[0]
-  const featuredSectionAd = adsData.find(
-    (ad) => ad.id !== heroAd?.id && ad.videoUrl !== heroAd?.videoUrl,
-  ) || heroAd
-  const featuredDescription = heroAd?.description && heroAd.description.trim().length > 50
-    ? heroAd.description
-    : 'This featured campaign highlights how we combine strategy, production, and storytelling to create advert content that is clear, memorable, and built for audience impact across platforms.'
-
-  const videoSrc = heroAd?.videoUrl?.includes('drive.google.com')
-    ? heroAd.videoUrl.replace('/drive/folders/', '/file/d/').replace('?usp=drive_link', '/preview')
-    : heroAd.videoUrl
-
-  const heroEmbedSrc = videoSrc?.includes('?')
-    ? `${videoSrc}&autoplay=1&mute=1&playsinline=1`
-    : `${videoSrc}?autoplay=1&mute=1&playsinline=1`
-
-  const featuredVideoSrc = featuredSectionAd?.videoUrl?.includes('drive.google.com')
-    ? featuredSectionAd.videoUrl.replace('/drive/folders/', '/file/d/').replace('?usp=drive_link', '/preview')
-    : featuredSectionAd?.videoUrl
-
-  const featuredEmbedSrc = featuredVideoSrc?.includes('?')
-    ? `${featuredVideoSrc}&autoplay=1&mute=1&playsinline=1`
-    : `${featuredVideoSrc}?autoplay=1&mute=1&playsinline=1`
-
-  const isLocalVideo = (src) => {
-    if (!src) return false
-    return src.startsWith('/src/assets/') || src.endsWith('.mp4') || src.endsWith('.webm')
-  }
-
-  useEffect(() => {
-    ;[heroVideoRef.current, featuredVideoRef.current].forEach((videoEl) => {
-      if (!videoEl) return
-      videoEl.muted = true
-      const playPromise = videoEl.play()
-      if (playPromise && typeof playPromise.catch === 'function') {
-        playPromise.catch(() => {
-          // Browser autoplay policies may delay playback until media is buffered.
-        })
-      }
-    })
-  }, [videoSrc, featuredVideoSrc])
-
   return (
-    <motion.div className="landing-page" {...pageTransition}>
-      <section className="hero-section">
-        <div className="hero-copy">
-          <motion.div
-            className="hero-text"
-            variants={staggerContainer}
-            initial="initial"
-            animate="animate"
-          >
-            <motion.p variants={staggerItem} className="eyebrow">
-              Creative Advertising Agency
-            </motion.p>
-            <motion.h1 variants={staggerItem} className="hero-title">
-              Creating Experiences.<br />
-              Building Brands.<br />
-              Inspiring Growth.
-            </motion.h1>
-            <motion.p variants={staggerItem} className="hero-description">
-              Mbongwa Creatives helps brands stand out through commercial production,
-              motion graphics, product launches, and campaign storytelling that connects
-              with people and drives growth.
-            </motion.p>
-            <motion.div variants={staggerItem} className="hero-actions">
-              <Link to="/gallery" className="btn btn-primary hero-primary-btn">
-                View Our Work
-              </Link>
-              <Link to="/contact" className="btn btn-secondary">
-                Get In Touch
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
+    <div className="landing-page page-wrap">
+      <HomeHero />
 
-        <motion.div
-          className="hero-visual"
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <div className="hero-visual-card">
-            {isLocalVideo(videoSrc) ? (
-              <video
-                ref={heroVideoRef}
-                className="hero-video"
-                src={videoSrc}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-              />
-            ) : (
-              <iframe
-                src={heroEmbedSrc}
-                title={heroAd.title}
-                className="hero-video"
-                allow="autoplay; encrypted-media; picture-in-picture"
-                allowFullScreen
-              />
-            )}
-          </div>
-        </motion.div>
+      <AgencyIntro />
+
+      <section className="story-block slim-block">
+        <p>
+          We shape campaigns that balance clarity, beauty, and performance—combining creative
+          direction, production, and motion to turn attention into brand equity.
+        </p>
       </section>
 
-      <motion.section
-        className="featured-section"
-        variants={fadeIn}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-      >
-        <div className="section-heading">
-          <p className="eyebrow">Featured Campaign</p>
-          <h2>{heroAd.title}</h2>
+      <HomeServices />
+
+      <BrandFramework />
+
+      <TestimonialsSection />
+
+      <section className="narrative-section">
+        <div className="section-header">
+          <p className="eyebrow">What we do</p>
+          <h2>Creative systems built for growth.</h2>
         </div>
 
-        <div className="featured-layout">
-          <div className="video-panel">
-            {isLocalVideo(featuredVideoSrc) ? (
-              <video
-                ref={featuredVideoRef}
-                className="video-frame"
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-                preload="auto"
-              >
-                <source src={featuredVideoSrc} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            ) : (
-              <iframe
-                src={featuredEmbedSrc}
-                title={`${heroAd.title} Preview`}
-                className="video-frame"
-                allow="autoplay; encrypted-media; picture-in-picture"
-                allowFullScreen
-              />
-            )}
-          </div>
-
-          <div className="featured-copy">
-            <p>{featuredDescription}</p>
-            <p className="featured-note">Live campaign preview playing automatically for quick viewing.</p>
-            <Link to="/gallery" className="inline-link">
-              Explore More Campaigns →
-            </Link>
-          </div>
-        </div>
-      </motion.section>
-
-      <motion.section
-        className="services-preview"
-        variants={fadeIn}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-      >
-        <div className="section-heading center">
-          <p className="eyebrow">What We Do</p>
-          <h2>Creative solutions built for impact</h2>
-        </div>
-
-        <div className="services-grid">
-          {config.services.slice(0, 6).map((service) => (
-            <motion.article
-              key={service.id}
-              className="service-card"
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.25 }}
-            >
-              <div className="service-icon">{service.icon}</div>
-              <h3>{service.name}</h3>
-              <p>{service.description}</p>
-            </motion.article>
+        <div className="narrative-stack">
+          {narrativeItems.map((item, index) => (
+            <article className="narrative-row" key={item.title}>
+              <div className="narrative-index">0{index + 1}</div>
+              <div className="narrative-text">
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </div>
+            </article>
           ))}
         </div>
-      </motion.section>
+      </section>
 
-      <motion.section
-        className="cta-banner"
-        initial={{ opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-      >
-        <h2>Let’s build the brand your audience will remember</h2>
-        <Link to="/contact" className="btn btn-primary btn-large cta-primary-btn">
-          Start Your Project
-        </Link>
-      </motion.section>
-    </motion.div>
+      <section className="framework-section">
+        <div className="section-header align-left">
+          <p className="eyebrow">Brand framework</p>
+          <h2>From insight to launch we keep the story clear.</h2>
+        </div>
+
+        <div className="process-grid">
+          {config.framework.map((step) => (
+            <article key={step.step} className="process-card feature-card">
+              <span className="step-label">Step {step.step}</span>
+              <h3>{step.name}</h3>
+              <p>{step.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="testimonial-section">
+        <div className="section-header">
+          <p className="eyebrow">Testimonials</p>
+          <h2>Clients trust us to make brands feel unmistakably premium.</h2>
+        </div>
+
+        <div className="testimonial-grid">
+          {config.testimonials.map((item) => (
+            <article key={item.id} className="testimonial-card">
+              <span className="quote-mark">“</span>
+              <p>{item.quote}</p>
+              <div className="testimonial-meta">
+                <strong>{item.name}</strong>
+                <span>{item.company}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </div>
   )
 }
 

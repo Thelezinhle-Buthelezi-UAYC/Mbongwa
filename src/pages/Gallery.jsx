@@ -1,6 +1,6 @@
-﻿import { motion } from 'framer-motion'
-import adsData from '../data/adsData'
-import { fadeIn, staggerContainer, staggerItem } from '../constants/animations'
+﻿import adsData from '../data/adsData'
+
+const portfolioItems = [...adsData, ...adsData].slice(0, 13)
 
 const isLocalVideo = (src = '') => src.endsWith('.mp4') || src.endsWith('.webm') || src.startsWith('/src/assets/')
 
@@ -16,31 +16,28 @@ const getDriveEmbedUrl = (src = '') => {
 }
 
 function Gallery() {
-  const youtubeChannelUrl = 'https://www.youtube.com/@mbongwacreatives'
-
   return (
-    <motion.div className="page-wrap" {...fadeIn}>
-      <section className="section-intro">
-        <p className="eyebrow">Our Work</p>
-        <h1>Creative campaigns that leave a mark</h1>
-        <p className="lead">
-          A curated look at the work we build for brands, campaigns, launches, and unforgettable moments.
+    <div className="page-wrap portfolio-page">
+      <section className="page-intro portfolio-page__header">
+        <p className="eyebrow">Portfolio</p>
+        <h1>Portfolio</h1>
+        <p className="lead-copy narrow-copy">
+          A curated look at our recent work across commercial production, product storytelling,
+          branding moments, and editorial motion.
         </p>
       </section>
 
-      <motion.section
-        className="gallery-grid"
-        variants={staggerContainer}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-      >
-        {adsData.map((ad) => (
-          <motion.article key={ad.id} className="gallery-card" variants={staggerItem}>
-            <div className="gallery-media">
+      <div className="instagram-alert">
+        Follow our creative process and latest release on Instagram: <a href="https://www.instagram.com/mbongwacreatives/" target="_blank" rel="noreferrer">@mbongwacreatives</a>
+      </div>
+
+      <section className="portfolio-grid">
+        {portfolioItems.map((ad, index) => (
+          <article className="portfolio-card" key={`${ad.id}-${index}`}>
+            <div className="portfolio-media">
               {isLocalVideo(ad.videoUrl) ? (
                 <video
-                  className="gallery-video"
+                  className="portfolio-video"
                   src={ad.videoUrl}
                   autoPlay
                   muted
@@ -48,32 +45,31 @@ function Gallery() {
                   playsInline
                   controls
                   preload="metadata"
+                  aria-label={`Preview for ${ad.title || 'campaign work'} video`}
                 />
               ) : (
                 <iframe
                   src={getDriveEmbedUrl(ad.videoUrl)}
-                  title={`Campaign video ${ad.id}`}
-                  className="gallery-video"
+                  title={`Campaign video ${index + 1}`}
+                  className="portfolio-video"
                   allow="autoplay; encrypted-media; picture-in-picture"
                   allowFullScreen
+                  aria-label={`Embedded campaign video ${index + 1}`}
                 />
               )}
             </div>
-          </motion.article>
+            <div className="portfolio-meta">
+              <span>{ad.category || 'Campaign'}</span>
+              <h3>{ad.title || `Campaign ${index + 1}`}</h3>
+            </div>
+          </article>
         ))}
-      </motion.section>
-
-      <section className="gallery-cta section-intro" style={{ paddingTop: '1rem' }}>
-        <a
-          href={youtubeChannelUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="btn gallery-see-more-btn"
-        >
-          See more
-        </a>
       </section>
-    </motion.div>
+
+      <div className="instagram-alert closing-alert">
+        More work is available on Instagram: <a href="https://www.instagram.com/mbongwacreatives/" target="_blank" rel="noreferrer">@mbongwacreatives</a>
+      </div>
+    </div>
   )
 }
 

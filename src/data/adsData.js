@@ -5,7 +5,6 @@
  * Add a video file there and it will appear in the gallery automatically.
  */
 
-import cityThumb from '../assets/images/city-of-africa-thumb.png'
 import homeThumb from '../assets/images/home-tech-box-thumb.png'
 import motionThumb from '../assets/images/motion-graphics-thumb.png'
 
@@ -17,14 +16,6 @@ const videoModules = import.meta.glob('../assets/videos/*.mp4', {
 const today = new Date().toISOString().split('T')[0]
 
 const metadataOverrides = {
-  'city-of-africa': {
-    title: 'City of Africa Brand Campaign',
-    description: 'Stunning visual narrative showcasing African heritage and culture.',
-    client: 'City of Africa',
-    category: 'Brand Storytelling',
-    thumbnail: cityThumb,
-    featured: false,
-  },
   'home-tech-box': {
     title: 'Home & Tech Box Product Launch',
     description: 'Dynamic product showcase with motion graphics and innovation.',
