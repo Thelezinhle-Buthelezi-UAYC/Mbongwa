@@ -28,7 +28,7 @@ function HomePage() {
         <div className="home-hero__media" aria-hidden="true">
           <video
             className="home-hero__video"
-            src={dunnsVideo}
+            src="/assets/hero/home-hero.mp4"
             autoPlay
             muted
             loop

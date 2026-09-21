@@ -61,8 +61,8 @@ function HomeHero() {
         <video
           ref={videoRef}
           className="home-hero__video"
-          src="src/assets/videos/landing-video.mp4"
-          poster="src/assets/hero/home-hero.jpg"
+          src="/assets/hero/home-hero.mp4"
+          poster="/assets/hero/home-hero.jpg"
           autoPlay
           muted
           loop
@@ -73,6 +73,7 @@ function HomeHero() {
         <div className="home-hero__overlay" />
       </div>
 
+      <!--
       <div className="home-hero__content">
         <p className="home-hero__eyebrow">Creative Advertising Agency</p>
         <h1 className="home-hero__headline">
@@ -89,6 +90,7 @@ function HomeHero() {
           View Our Work <span aria-hidden="true">→</span>
         </Link>
       </div>
+      --> 
 
       <button
         type="button"
