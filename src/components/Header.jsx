@@ -57,7 +57,6 @@ function Header() {
         </Link>
 
         <div className="nav-cluster">
-          <span className="nav-tag" aria-hidden="true">Built on WIX Harmony</span>
           <nav id="primary-navigation" ref={navRef} className={`nav-links ${isMenuOpen ? 'nav-links-open' : ''}`} aria-label="Main navigation">
             {navItems.map((item) => (
               <Link key={item.path} to={item.path} onClick={() => setIsMenuOpen(false)}>
