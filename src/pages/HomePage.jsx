@@ -36,23 +36,7 @@ function HomePage() {
             aria-label="Background hero video for Mbongwa Creatives"
             title="Background hero video"
           />
-          <div className="home-hero__overlay" />
         </div>
-
-        <div className="home-hero__content">
-          <p className="home-hero__eyebrow">{siteCopy.home.eyebrow}</p>
-          <h1 className="home-hero__headline">
-            {siteCopy.home.headline.map((line) => (
-              <span key={line}>{line}</span>
-            ))}
-          </h1>
-          <p className="home-hero__subheadline">{siteCopy.home.subheadline}</p>
-
-          <Link to="/site/portfolio" className="home-hero__cta">
-            View Our Work <span aria-hidden="true">→</span>
-          </Link>
-        </div>
-
       </section>
 
       <section className="agency-intro" aria-label="Agency introduction and capabilities">
