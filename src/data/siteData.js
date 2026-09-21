@@ -2,7 +2,6 @@ export const navItems = [
   { name: 'Home', path: '/site' },
   { name: 'About', path: '/site/about' },
   { name: 'Portfolio', path: '/site/portfolio' },
-  { name: 'Contact', path: '/site/contact' },
 ]
 
 export const contactDetails = [

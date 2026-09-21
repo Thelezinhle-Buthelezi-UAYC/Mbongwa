@@ -9,7 +9,6 @@ const navItems = [
   { name: 'Home',      path: 'index.html' },
   { name: 'About',     path: 'about.html' },
   { name: 'Portfolio', path: 'portfolio.html' },
-  { name: 'Contact',   path: 'contact.html' },
 ]
 
 // ── Contact Details ──────────────────────────────────────────────────────────
