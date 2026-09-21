@@ -61,8 +61,8 @@ function HomeHero() {
         <video
           ref={videoRef}
           className="home-hero__video"
-          src="/assets/hero/home-hero.mp4"
-          poster="/assets/hero/home-hero.jpg"
+          src="src/assets/videos/landing-video.mp4"
+          poster="src/assets/hero/home-hero.jpg"
           autoPlay
           muted
           loop
